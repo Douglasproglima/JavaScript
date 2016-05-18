@@ -1,0 +1,1 @@
+document.write("<h3>Código JavaScript arquivo externo</h3>");

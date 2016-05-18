@@ -1,0 +1,31 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Funções</title>
+	<script type="text/javascript">
+		function funcaoTest(descricao){
+			/*
+			É possível invocar funções declaradas posteriormente dentro da 
+			construção de outra função, conforme abaixo;
+			*/
+			document.write("<h2>Código javaScript: resultado da function multiplicar 2*4 = "+multiplicar(2, 4)+"</h2>");
+			document.write("<h2>Código javaScript: "+descricao+"</h2>");
+		}
+		
+		function multiplicar(num1, num2){
+			result = num1*num2;
+			return result;
+		}
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Funções</h4>
+	<!-- Lembrando que as funções devem ser declaradas antes de sua invocação; -->
+	<script type="text/javascript">
+		//Chamando a função multiplicar() dentro da função funcaoTest()
+		funcaoTest("retorno de 5 * 2 = "+multiplicar(5, 2));
+	</script>
+
+
+</body>
+</html>
