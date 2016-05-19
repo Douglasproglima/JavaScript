@@ -12,6 +12,11 @@
 			Armazenam ordenadamente conjuntos de valores e objetos acessíveis pelo índice. 
 			Arrays iniciam sempre pelo índice 0;
 		
+		Tipos:
+			Arrays paralelos;
+			Arrays multidimensionais;
+			Simulação do hashTable -> Acessa um valor através de uma determinado índice
+			
 		Uso:
 			variavel = new Array();
 			variavel = new Array(Comprimento);
@@ -19,6 +24,91 @@
 			variavel = [Valores de Inicialização];;
 		*/
 		
+		//Primeira forma de popular um Array();
+// 		var array = new Array(prompt("Informe o texto posição 0", ""),
+// 							  prompt("Informe o texto posição 1", ""),
+// 							  prompt("Informe o texto posição 2", ""),		
+// 							  prompt("Informe o texto posição 3", ""),
+// 							  prompt("Informe o texto posição 4", ""));
+// 		document.write("<br>Array 001 - comprimento: " + array.length+"<br><br>");
+	
+		//Segunda forma de popular o Array();
+		/*
+		array[0] = prompt("Informe o texto posição 0", "");
+		array[1] = prompt("Informe o texto posição 1", "");
+		array[2] = prompt("Informe o texto posição 2", "");		
+		array[3] = prompt("Informe o texto posição 3", "");
+		array[4] = prompt("Informe o texto", "");
+		*/
+		
+		//Terceira forma de inicializar e popular um Array();
+		/*
+		var array = [prompt("Informe o texto posição 0", ""),
+					 prompt("Informe o texto posição 1", ""),
+					 prompt("Informe o texto posição 2", ""),		
+					 prompt("Informe o texto posição 3", ""),
+					 prompt("Informe o texto", "")];		
+		*/
+	
+// 		for (var i = 0; i < array.length; i++) {
+// 			document.write("<br>Array for 1 - Posição["+i+"]: " + array[i]);
+// 		}
+// 		alert("Fim da execução <br>");
+// 		document.write("<br><br>");
+		
+		//Arrays Paralelos - Exemplo passando índices
+		var arrayNomes = [prompt("Informe a nome da primeira pessoa", ""),
+		                  prompt("Informe a nome da segunda pessoa", ""),
+		                  prompt("Informe a nome da terceira pessoa", ""),
+		                  prompt("Informe a nome da quarta pessoa", ""),
+		                  prompt("Informe a nome da quinta pessoa", "")];
+		
+		arrayNomes[3] = null; //1º Forma de deletar o valor de um índice diretamente
+		delete arrayNomes[2]; //2º Forma de deletar o valor de um índice diretamente
+		
+		var arrayIdades =[prompt("Informe a idade da primeira pessoa", ""),
+		                  prompt("Informe a idade da segunda pessoa", ""),
+		                  prompt("Informe a idade da terceira pessoa", ""),
+		                  prompt("Informe a idade da quarta pessoa", ""),
+		                  prompt("Informe a idade da quinta pessoa", "")];
+		
+		for (a = 0; a < arrayNomes.length; a++) {
+			document.write("<br>Array for 2 - Posição["+a+"]: " + arrayNomes[a] + " - Idade: "+ arrayIdades[a]);
+		}
+		document.write("<br><br>");
+		alert("Fim da execução Arrays Paralelos.<br><br>");
+		
+		//Arrays Multidimensionais ou Arrays de Arrays
+		arrayPessoas = new Array();
+		arrayPessoas[0] = ["Douglas", 28];
+		arrayPessoas[1] = ["Lucas", 21];
+		arrayPessoas[2] = ["Ramon", 18];
+		arrayPessoas[3] = ["Geraldo", 32];
+		arrayPessoas[4] = ["José", 53];
+
+		/*Segunda forma do array Multidimensionais
+		arrayPessoas = new Array(["Douglas", 28],
+								 ["Lucas", 21],
+								 ["Ramon", 18],
+								 ["Geraldo", 32],
+								 ["José", 53]);		
+		*/
+		
+		/*Terceira forma do array Multidimensionais
+		arrayPessoas = [["Douglas", 28],
+						["Lucas", 21],
+						["Ramon", 18],
+						["Geraldo", 32],
+						["José", 53]];		
+		*/
+		
+		for (a = 0; a < arrayPessoas.length; a++) {
+			document.write("<br>Array for 3 - Posição["+a+"]: " + arrayPessoas[a][0] + " - " + arrayPessoas[a][1]);
+		}
+		alert("Fim da execução Arrays Multidimensionais.");
+			
+		
+		//HashTable
 	</script>	
 </body>
 </html>
