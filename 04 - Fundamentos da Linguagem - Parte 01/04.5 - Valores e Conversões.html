@@ -1,0 +1,86 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Valores e Conversões</title>
+	<script type="text/javascript" src="">
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - valores e conversores</h4>
+	<script type="text/javascript">
+		/*
+		Grande parte das conversões são feitas automaticamente
+			"22" + 1 = "221"
+			"22" - 1 = 21
+			3 + 1 "4" = "44"
+			3 + 1 - "4" = 0
+		
+		Funções que realizam conversões
+			Number()....: Converte para número
+			parseInt()..: Converte para inteiro
+			parseFloar(): Converte para ponto flutuante
+		*/
+		
+		//Teste 01
+		document.write("________Valor das variáveis________<br>");
+		var numero;
+		document.write("numero 01: "+typeof(numero)+"<br>");
+		
+		numero = 2.3;
+		document.write("numero 02 = 2.3: "+typeof(numero)+"<br>");
+	
+		numero = "teste";
+		document.write("numero 03 = 'teste': "+typeof(numero)+"<br>");
+
+		numero = true;
+		document.write("numero 04 = true: "+typeof(numero)+"<br><br>");
+		
+		//Teste 02
+		var numero1 = "58";
+		document.write("________Operações________<br>");
+		document.write("var numero1 = '58'<br>");
+		document.write("numero 05: numero1 + 1 = "+(numero1+1)+"<br>");
+		document.write("numero 06: numero1 - 1 = "+(numero1-1)+"<br>");
+		document.write("numero 07: 3 + numero1 - 1 = "+(3+numero1-1)+"<br><br>");
+		
+		document.write("________Tipo de Dados________<br>");
+		document.write("numero 08: 3 + numero1 - 1 = Tipo de dados: "+typeof(3+numero1-1)+"<br>");
+		document.write("numero 09: 3 + numero1 = Tipo de dados: "+typeof(3+numero1)+"<br><br>");
+		
+		document.write("________Conversores________<br>");
+		var numero1 = "58"
+		document.write("numero 10: numero1 Number() = "+(Number(numero1))+"<br>");
+		document.write("numero 11: numero1 = tipo de dados: "+(typeof(Number(numero1)))+"<br><br>");
+
+		var numero1 = "t58"
+		document.write("var numero1 = 't58'<br>");
+		document.write("numero 12: numero1 Number() = "+(Number(numero1))+"  - Não é um número<br>");
+		document.write("numero 13: numero1 = tipo de dados: "+(typeof(Number(numero1)))+"<br><br>");
+
+		var numero1 = "58t"
+		document.write("var numero1 = '58t'<br>");
+		document.write("numero 14: numero1 Number() = "+(Number(numero1))+"  - Não é um número<br>");
+		document.write("numero 15: numero1 = tipo de dados: "+(typeof(Number(numero1)))+"<br><br>");
+
+		var numero1 = "t58"
+		document.write("var numero1 = 't58'<br>");
+		document.write("numero 16: numero1 = parseInt() "+(parseInt(numero1))+"  - Não é um número<br>");
+		document.write("numero 17: numero1 = tipo de dados: "+(typeof(parseInt(numero1)))+"<br><br>");
+
+		var numero1 = "58t"
+		document.write("var numero1 = '58t'<br>");
+		document.write("numero 18: numero1 = parseInt() "+(parseInt(numero1))+"<br>");//Neste caso o interpretador irá descartar todo o resto da strign após o 58
+		document.write("numero 19: numero1 = tipo de dados: "+(typeof(parseInt(numero1)))+"<br><br>");
+
+		var numero1 = "58t"
+		document.write("var numero1 = '58t'<br>");
+		document.write("numero 18: numero1 = parseFloat() "+(parseFloat(numero1))+"<br>");
+		document.write("numero 19: numero1 = tipo de dados: "+(typeof(parseFloat(numero1)))+"<br><br>");
+
+		var numero1 = "58.5"
+		document.write("var numero1 = '58.5'<br>");
+		document.write("numero 18: numero1 = parseFloat() "+(parseFloat(numero1))+"<br>");
+		document.write("numero 19: numero1 = tipo de dados: "+(typeof(parseFloat(numero1)))+"<br><br>");
+		</script>	
+</body>
+</html>
