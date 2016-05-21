@@ -1,0 +1,50 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Estrutura Controle 3 - Exceções</title>
+	<script type="text/javascript" src=" ">
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Estrutura Controle 3 - Exceções</h4>
+	<script type="text/javascript">
+		/*Exceções
+			O tratamento de exceções é utilizado para tratar situações inesperadas e bla blá;
+			Também ao usuário malaca mensagens que ajudam a mente maluco do danado a entender o que está rolando.
+		
+			throw
+			try
+			catch
+			finally
+			
+			Uso do paranauê
+				throw valor; //Palavra reservada para lançar a exceção
+			try{
+				//Code a ser rodado
+			}catch{
+				//Code em tratamento da exceção
+			}finally{
+				//Code execução obrigatória, tendo ou não erro a bagaça aqui vai ser excutada
+			}
+		*/
+		
+		function dividir100(num){
+			try{
+				var valorFuncao = Number(num);
+				if (isNaN(valorFuncao)) {
+					throw "throw valor inválido";
+				}
+				return num/100;
+			}catch (erro) {
+				alert("Erro: "+erro);
+				return 0;
+			}finally{
+				alert("Finally - roda do mesmo jeito a budega");
+			}
+		}
+		
+		var valor = prompt("Informe um valor: ");		
+		alert(dividir100(valor));
+	</script>	
+</body>
+</html>
