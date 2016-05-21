@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+</head>
+
+<body>
+	Digite 6 numeros para o sorteio
+	<br>
+
+	<input type="text" id="numero" />
+	<input type="submit" id="adiciona" value="Adicionar e testar novo numero" />
+	<input type="submit" id="compara" value="Clique aqui para comparar" />
+
+	<script type="text/javascript">
+		
+		var loteria = [];
+		var j = 0
+		
+		while (j < 6) {
+			var sorteia = Math.floor(Math.random() * 100);
+			if (sorteia <= 60) {
+				for (k = 0; k < 6; k++) {
+					if (loteria[k] == sorteia) {
+						sorteia = Math.floor(Math.random() * 60);
+					}
+				}
+				loteria.push(sorteia);
+				j++;
+			}
+		}
+
+		var sorteado = [];
+		function adicionarSorteado() {
+			var num = document.getElementById("numero").value;
+			for (i = 0; i < sorteado.length; i++) {
+				if (sorteado[i] == num) {
+					alert("Voce Ja digitou esse numero");
+					return;
+				}
+
+			}
+			sorteado.push(num);
+			alert(sorteado);
+
+		}
+
+		function compara() {
+			var acerto = 0;
+			for (l = 0; l < 6; l++) {
+				for (m = 0; m < 6; m++) {
+					if (loteria[l] == sorteado[m]) {
+						acerto++;
+					}
+				}
+			}
+			alert("Parabens voce acertou " + acerto + " numeros ");
+
+		}
+		var botao1 = document.getElementById("compara");
+		botao1.onclick = compara;
+
+		var botao = document.getElementById("adiciona");
+		botao.onclick = adicionarSorteado;
+	</script>
+</body>
+</html>

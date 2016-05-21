@@ -23,7 +23,8 @@
 			variavel = new Array(Valores de Inicialização);
 			variavel = [Valores de Inicialização];;
 		*/
-		
+
+//----------------------------------------------------------------------------------------//		
 		//Primeira forma de popular um Array();
 // 		var array = new Array(prompt("Informe o texto posição 0", ""),
 // 							  prompt("Informe o texto posição 1", ""),
@@ -56,8 +57,9 @@
 // 		alert("Fim da execução <br>");
 // 		document.write("<br><br>");
 		
+//----------------------------------------------------------------------------------------//		
 		//Arrays Paralelos - Exemplo passando índices
-		var arrayNomes = [prompt("Informe a nome da primeira pessoa", ""),
+		/*var arrayNomes = [prompt("Informe a nome da primeira pessoa", ""),
 		                  prompt("Informe a nome da segunda pessoa", ""),
 		                  prompt("Informe a nome da terceira pessoa", ""),
 		                  prompt("Informe a nome da quarta pessoa", ""),
@@ -85,7 +87,8 @@
 		arrayPessoas[2] = ["Ramon", 18];
 		arrayPessoas[3] = ["Geraldo", 32];
 		arrayPessoas[4] = ["José", 53];
-
+		
+//----------------------------------------------------------------------------------------//
 		/*Segunda forma do array Multidimensionais
 		arrayPessoas = new Array(["Douglas", 28],
 								 ["Lucas", 21],
@@ -93,7 +96,8 @@
 								 ["Geraldo", 32],
 								 ["José", 53]);		
 		*/
-		
+
+//----------------------------------------------------------------------------------------//		
 		/*Terceira forma do array Multidimensionais
 		arrayPessoas = [["Douglas", 28],
 						["Lucas", 21],
@@ -102,13 +106,38 @@
 						["José", 53]];		
 		*/
 		
-		for (a = 0; a < arrayPessoas.length; a++) {
+		/*for (a = 0; a < arrayPessoas.length; a++) {
 			document.write("<br>Array for 3 - Posição["+a+"]: " + arrayPessoas[a][0] + " - " + arrayPessoas[a][1]);
 		}
-		alert("Fim da execução Arrays Multidimensionais.");
+		alert("Fim da execução Arrays Multidimensionais.");*/
 			
+//----------------------------------------------------------------------------------------//		
+		//Simulação do HashTable - Passa a chave e recebe o elemeto de retorno.
+		arrayEntidades = [["Douglas", 28],
+		 				  ["Lucas", 21],
+						  ["Ramon", 18],
+						  ["Geraldo", 32],
+						  ["José", 53]];
+
+
+		for(var i = 0 ; i < arrayEntidades.length; i++){
+			//Cria o atributo pessoas,em seguida será acessado a posição [i] após acessar a posição passando no i 
+			//pegar o nome da pessoa e por último atribuir o próprio objeto
+			arrayEntidades[arrayEntidades[i][0]] = arrayEntidades[i];
+		}
 		
-		//HashTable
+		do{
+			var nomePessoa = prompt("Informe o seu nome.");
+			var pessoa = arrayEntidades[nomePessoa];
+			
+			if (!pessoa) {
+				document.write("<br>Não foi encontrada uma pessoa com o nome: "+nomePessoa);
+			}			
+		}		
+		while(!pessoa)
+			document.write("<br>Pessoa selecionada: "+pessoa[0] + " - Idade: "+pessoa[1]);
+		
+		alert("<br><br>Fim da execução Arrays HashTable.");
 	</script>	
 </body>
 </html>
