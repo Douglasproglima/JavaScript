@@ -1,0 +1,52 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Objeto - String</title>
+	<script type="text/javascript" src=" ">
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Objeto - String</h4>
+	<script type="text/javascript">
+		/*Objetos
+			String
+				Métodos:
+					length.....: Atributo com o comprimento da string;
+					charArt()..: Retorna o caracter na posição especifida;
+					concat()...: Combina duas Strings retornando uma nova;
+					indexOf()..: Retorna a primeira posição do valor especificado ou -1 se não foi localizado;
+					lastIndex(): Retorna a última posição do valor especificado ou -1 se não foi localizado;
+					match()....: Verifica se o padrão definido por uma expressão regular existe;
+					replace()..: Substitui de acordo com uma expressão regular ou string, trechos da string;
+					search()...: Pesquisa por uma expressão regular na string;
+					slice()....: Extrai parte da string - trabalha com índices positivos e negativos;
+					split()....: Quebra uma string em várias subStrings;
+					substr()...: Extrai parte da string, trabalha com um índice positivo e um comprimento de strings;
+					substring..: Extrai parte da string, trabalha com dois índices positivos, o primeiro índice e último índice;
+					toLowerCase: Converte uma string para letras maiúsculas;
+					toUpperCase:Converte uma string para letras minúsculas;
+					
+				Métodos HTML
+					blink()....: Retorna uma string que fica piscando (<blind>);
+					fontcolor(): Modifica a cor da fonte (<font color='cor'>);
+					fontsize().: Modifica o tamanho da fonte (<font size = "tamanho">);
+					italics()..: Coloca o texto em itálico (<i>);
+					bold().....: Coloca o texto em negrito (<b>;)
+		*/
+		
+		function removeEspacosBrancos(texto){
+			while(texto.indexOf(" ") != -1){
+				var parte1 = texto.substring(0, texto.indexOf(" "));
+				var parte2 = texto.substring(texto.indexOf(" "), texto.length);
+				
+				texto = parte1 + parte1;
+			}
+			
+			return texto;
+		}
+		
+		var valor = prompt("Informe um texto.");
+		alert(removeEspacosBrancos(valor));
+	</script>	
+</body>
+</html>
