@@ -1,0 +1,58 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Objeto - Date</title>
+	<script type="text/javascript" src=" ">
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Objeto - Date</h4>
+	<script type="text/javascript">
+		/*Objeto Date
+			Métodos
+			set/getDate()....: Atribui/Retorna o dia do mês (1 - 31)
+			getDay().........: Retorna o dia da semana (0 - 6)
+			set/getMonth()...: Atribui/Retorna o mês (0 - 11)
+			set/getFullYear(): Atribui/Retorna o ano
+			set/getHours()...: Atribui/Retorna as horas (0 - 23)
+			set/getMinutes().: Atribui/Retorna os minutos ( 0 - 59)
+			set/getSeconds().: Atribui/Retorna os segundos ( 0 - 59)
+			set/getTime()....: Atribui/Retorna o númerdo de milisegundos deste 01/01/1970
+		*/
+		
+		var dataAtual = new Date();
+		document.write("Data Atual: "+dataAtual);
+		
+		var passandoData = new Date(2016, 4, 25);
+		document.write("<br>Passando uma Data: " + passandoData);
+		
+		//Mes: 30 - Dia: 24 - Hora: 60 - Minuto: 60 - Milesegundos: 1000 - Constante que irá armazenar os milesegundos de um mês 
+		const MES = 30*24*60*60*1000;
+		const DIA = 24*60*60*1000;
+		
+		//Calcula intervalo entre datas
+		function adicionarData(data, constante, valor){
+			var resultado = data.getTime() + (valor * constante); //pega a data de 01/01/1970 multiplica do valor pela constante e soma com 01/01/1970;
+		
+			return new Date(resultado);
+		}
+		
+		var data01 = new Date(dataAtual);
+		document.write("<br><br> Data01: " + data01);
+		document.write("<br> adicionarData MES: " + adicionarData(data01, MES, 4));
+		document.write("<br> adicionarData DIA: " + adicionarData(data01, DIA, 4));
+		
+		//Manipular datas, calcular diferenças entre datas
+		function calcularIntervalo(primeiraData, segundaData, constante){
+			return Math.abs(parseInt( (primeiraData.getTime() - segundaData.getTime()) / constante));
+		}
+		
+		var data02 = new Date(dataAtual);
+		var dataPosterior =  new Date(2020, 1, 2);
+		
+		document.write("<br><br> data02: " + data02);
+		document.write("<br> adicionarData MES: " + calcularIntervalo(data02, dataPosterior, MES) + " Meses");		
+		document.write("<br> adicionarData DIA: " + calcularIntervalo(data02, dataPosterior, DIA) + " Dias");
+	</script>	
+</body>
+</html>
