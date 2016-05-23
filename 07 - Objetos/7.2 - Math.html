@@ -1,0 +1,62 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Objeto - Math</title>
+	<script type="text/javascript" src=" ">
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Objeto - Math</h4>
+	<script type="text/javascript">
+		/*Objeto Math
+			Atributos
+			E......: Constante de Euler
+			LN2....: Logaritmo natural de 2
+			LN10...: Logaritmo natural de 10
+			LOG2E..: Logaritmo natural base 2 de E
+			LOG10E.: Logaritmo natural base 10 de E 
+			PI.....: Valor de pi
+			SQRT1_2: Raiz quadrada de 1/2
+			SQRT2..: Raiz quadrada de 2
+			abs()..: Valor absoluto de um número
+			acos().: Arco cosseno de um número em radianos
+			asin().: Arco seno de um número em radianos
+			atan().: Arco tangente de um número em radianos
+			ata2().: Arco tangente de quociente de seus parâmetros
+			
+			ceil(): Devolve o menor inteiro maior ou igual ao número
+			cos(): Retorna o cosseno de um número
+			exp(): Retorna o valor de E*, onde * é o argumento da função
+			floor(): Retorna o maior inteiro menor ou igual ao número
+			log(): Retorna o logaritmo natural base E de um número
+			max(): Retorna o maior número de um conjunto de números
+			min(): Retorna o menor número de um conjunto de números
+			pow(): Retorna o menor número base elevado ao expoente
+			random(): Retorna um valor entre 0 a 1
+			round(): Retorna o inteiro mais próximos ao número
+			sin(): Retorna o seno de um número
+			sqrt(): Retorna a raiz quadrada de um número
+			tan(): Retorna o  a tangentede um número
+		*/
+		
+		var numero = 5.3;
+		document.write("<br> Número 5.3"); 
+		document.write("<br> Função ABS: " + Math.abs(numero));
+		document.write("<br> Função Ceil: " + Math.ceil(numero));
+		document.write("<br> Função Floor: " + Math.floor(numero));
+		document.write("<br> Função Round: " + Math.round(numero));
+
+		document.write("<br><br> Função Random 1: " + Math.random());
+		document.write("<br> Função Random de 1 digitos: " + parseInt(Math.random() * 10));
+		document.write("<br> Função Random de 2 digitos: " + parseInt(Math.random() * 100));
+		document.write("<br> Função Random de 3 digitos: " + parseInt(Math.random() * 1000));
+		
+		document.write("<br> Função Max: " + Math.max(7,5,3,5,8,9,10,25,6));
+		document.write("<br> Função Min: " + Math.min(7,5,3,5,8,9,10,25,6));
+		
+		document.write("<br> Função Pow: " + Math.pow(2, 2));
+		
+		document.write("<br> Função sqrt: " + Math.sqrt(25));
+	</script>	
+</body>
+</html>
