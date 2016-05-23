@@ -34,19 +34,70 @@
 					bold().....: Coloca o texto em negrito (<b>;)
 		*/
 		
-		function removeEspacosBrancos(texto){
+		//1º Forma
+		function removeEspacosBrancos1(texto){
+			var resultado = " ";
+			for(var i = 0; i < texto.length; i++){
+				if (i < texto.length && texto.substr(i, 1) != " ") {
+					resultado += texto.substr(i, 1);
+				}
+			}
+			
+			return resultado;
+		}
+		
+		//2º Forma
+		function removeEspacosBrancos2(texto){
 			while(texto.indexOf(" ") != -1){
 				var parte1 = texto.substring(0, texto.indexOf(" "));
-				var parte2 = texto.substring(texto.indexOf(" "), texto.length);
+				var parte2 = texto.substring(texto.indexOf(" ")+1, texto.length);
 				
-				texto = parte1 + parte1;
+				texto = parte1 + parte2;
 			}
 			
 			return texto;
 		}
+
+		//var valor = prompt("Informe um texto.");
+		//alert(removeEspacosBrancos1(valor));
 		
-		var valor = prompt("Informe um texto.");
-		alert(removeEspacosBrancos(valor));
+		function converteNumeroMoeda(num){
+			var aux = num / 100;
+			aux = aux.toString().replace(".", ",");
+			
+			var parteInteira = aux.substring(0, aux.indexOf(","));
+			if(aux.indexOf(",") == -1){
+				parteInteira = 0;
+			}
+								
+			var parteFracionaria = aux.substring(aux.indexOf(","), aux.length);
+			
+			//Se o resultado for zero, forma para 0,00, se o comprimento da parte fracionária for menor ou igual a dois digitos retorna a parte fracionária + 0
+			parteFracionaria = aux.indexOf(",") == -1 ? ",00" : parteFracionaria.length <= 2 ? parteFracionaria+"0" : parteFracionaria ; //Operador Ternário
+			
+			if (parteInteira.length < 4) {
+				return "R$ " + parteInteira + parteFracionaria;
+			}
+			
+			var resultado = "";
+			for (var i = parteInteira.length; i > 3;) {
+				//parteInteira.substring(i-3, i): Do fim e desce 3 digitos e se tira uma subString
+				resultado = "." + parteInteira.substring(i-3, i)+resultado; 
+				
+				//Tira uma outra substring do que não foi avaliado
+				parteInteira = parteInteira.substring(0, i-3);
+				
+				//Avali se 3 caracteres, adiciona o ponto se for o caso e remove e assim por diante - Expressão de incremento
+				i = i - 3; 
+			}
+			
+			return "R$ " + parteInteira+resultado+parteFracionaria;
+		}
+		
+		var valor = prompt("Informe um valor.");
+		document.write("<br>" + converteNumeroMoeda(valor).blink().fontcolor("red").fontsize(50).italics());//Função blink() está obsoleta.
+		//alert(converteNumeroMoeda(valor));
+		
 	</script>	
 </body>
 </html>
