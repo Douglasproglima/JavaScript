@@ -1,0 +1,53 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Objeto - Date</title>
+	<script type="text/javascript" >
+		/*Objeto Document -  É utilizado para acessar os objetos da página e altera los
+		Métodos
+		document.body()......: Retorna o corpo da página
+		document.forms().....: Retorna os forms do documento
+		write()..............: Escreve o texto no documento
+		writeIn()............: Escreve uma nova linha no documento
+		getElementByID().....: Retorna elemento pelo identificador
+		getElementByname()...: Retorna elemento pelo nome
+		getElementByTagName(): Retorna elementos pela tag
+		*/
+	
+		function manipulaDocumento(){
+			alert("Função manipulaDocumento()");
+			var botao = document.getElementById("IdBotao01");
+			with(botao){
+				botao.value = "Validar 02";
+				botao.title = "Title Comentário Bazinga";				
+			}
+			
+			var forms =  document.forms;
+			for(var i = 0; forms.length; i++){
+				document.write("<br><br>Id dos Forms: " + forms[i].id);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Objeto - Date</h4>
+
+	<input id="IdBotao01" type="button" value="Validar" />
+	
+	<form id="IdForm01">
+	
+	</form>
+		
+	<form id="IdForm02">
+	
+	</form>
+
+	<form id="IdForm03">
+	
+	</form>
+	
+	<script type="text/javascript">
+		manipulaDocumento();
+	</script>
+</body>
+</html>
