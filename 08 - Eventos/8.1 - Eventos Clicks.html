@@ -1,0 +1,73 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Eventos - Clicks</title>
+	<script type="text/javascript" >
+		function modificarTitulo(){
+			document.title = document.getElementById("idTexto").value;
+		}
+		
+		function validarEmail(){
+			var email = document.getElementById("idTexto").value;
+			if (email.indexOf("@") < 0) {
+				alert("E-mail inválido");
+				document.getElementById("idTexto").value = "";
+			}else{
+				alert("E-mail válido!");
+			}
+		}
+		
+		function validarNumeros(evt){
+			var codigo = evt.which;
+			alert("Tecla pressionada: " + String.fromCharCode(codigo) + " - Cód Tecla: "+codigo);
+			var num =  parseInt(String.fromCharCode(codigo)); //tenta fazer a conversão p/ inteiro
+			
+			//Se não for número retorna falso
+			if (isNaN(num)) {
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+		function validarNumeros2(evt){
+			evt = evt ? evt : window.event; 
+			
+			var codigo = evet.keyCode ? evet.keyCode : evt.which; //O IE não trabalha com evento, neste caso ele pegará o evento do windows
+			alert("Tecla pressionada: " + String.fromCharCode(codigo) + " - Cód Tecla: "+codigo);
+			var num = parseInt(String.fromCharCode(codigo)); //tenta fazer a conversão p/ inteiro
+			
+			//Se não for número retorna falso
+			if (isNaN(num)) {
+				var texto = document.getElementById("idTexto03").value;
+				for(var i = 0; i < texto.length; i++){
+					var aux =  paserInt(texto.substr(i, 1));
+					if (isNaN(aux)) {
+						texto = texto.substring(0, i) + texto.substring(i+1, texto.length);						
+						document.getElementById("idTexto03").value = texto;
+					}	
+				}
+			}
+		}		
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Eventos - Clicks</h4>
+	<input id="idTexto" type="text" />
+	<input id="idBotao" type="button" value="OK -Um Clique" onclick="validarEmail()" />
+	
+	<br><br>
+	<input id="idBotao02" type="button" value="OK - Dois Cliques" ondblclick="validarEmail()" />
+	
+	<!-- OnKeyPress trabalha com o caracter do teclado  -->
+	<br><br>
+	<label>OnKeyPress</label>
+	<input id="idTexto02" type="text" onkeypress = "return validarNumeros(event)"/>
+
+	<!-- OnKeyPress trabalha com o código do teclado  -->
+	<br><br>
+	<label>OnKeyDown</label>
+	<input id="idTexto03" type="text" onkeyup = "validarNumeros2(event)"/>
+
+</body>
+</html>
