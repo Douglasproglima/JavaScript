@@ -1,0 +1,28 @@
+<html>
+<meta charset="utf-8">
+<head>
+<title>JavaScript - Array Pessoas 4 Letras</title>
+<script type="text/javascript" src="">
+	
+</script>
+</head>
+<body>
+	<h4>Corpo da página - Array Pessoas 4 Letras</h4>
+	<script type="text/javascript">
+		/*
+		C) Crie um Array igual ao abaixo e mostre apenas os nomes das pessoas que tenham 4 letras.
+		var pessoas = ["João", "José", "Maria", "Sebastião", "Antônio"];
+		Dica: use o atributo length das Strings.
+		 */
+
+		var pessoas = [ "João", "José", "Maria", "Sebastião", "Antônio" ];
+		document.write("<br>Nomes: " + pessoas + "<br>");
+
+		for (var i = 0; i < pessoas.length; i++) {
+			if (pessoas[i].length == 4) {
+				document.write("<br>Nomes com 4 letras: " + pessoas[i]);
+			}
+		}
+	</script>
+</body>
+</html>
