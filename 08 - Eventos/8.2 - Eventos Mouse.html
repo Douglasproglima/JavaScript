@@ -1,0 +1,64 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Eventos - Mouse</title>
+	<script type="text/javascript">
+		var contador = 0;
+		function alterarImagem(){
+			var imagens = ["red.png", "blue.png", "yellow.png"];
+			contador = ++contador > 2 ? 0 : contador;
+			
+			return imagens[contador];
+		}
+		
+		function mostrarMenu(idMenu){
+			var menu = document.getElementById(idMenu);
+			menu.style.display = "block";
+			
+			var imagens = document.images;
+			for (var i = 0; i < imagens.length; i++) {
+				if (imagens[i].id+"Dinamico" != idMenu) {
+					ocultarMenu(imagens[i].id+"Dinamico");
+				}
+			}
+		}
+		
+		function ocultarMenu(idMenu){
+			var menu = document.getElementById(idMenu);
+			menu.style.display = "none";
+		}
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Eventos - Mouse</h4>
+	<!-- Eventos do Mouse
+		onMouseDown: Ocorre quando o usuário pressiona o botão do mouse
+		onMouseUp..: Ocorre quando o usuário libera o botão do mouse
+		onMouseOver: Ocorre quando o mouse é movido sobre um elemento
+		onMouseOut.: Ocorre quando o mouse é movido fora de um elemento
+		onMouseMove: Ocorre quando o mouse é movido sobre um elemento
+	 -->
+	 <p><img id="idMenu01" src="red.png" border="1px" width="100" 
+	 		 onmousedown = "this.src = alterarImagem()" 
+	 		 onmouseover="mostrarMenu(this.id+'Dinamico')"
+	 		 onmousemove="alert('Teste OnMouseMove');"
+	 ></p>
+	 <div id="idMenu01Dinamico" style="display: none">
+		 <p><h4>1 - Página Inicial</h4></p>
+		 	<p><a href=# >Link 1.1</a></p>
+		 	<p><a href=# >Link 1.2</a></p>
+		 	<p><a href=# >Link 1.2</a></p>
+	 </div>
+	 
+	<p><img id="idMenu02" src="blue.png" border="1px" width="100" 
+			onmouseup = "this.src = alterarImagem()" 
+			onmouseover="mostrarMenu(this.id+'Dinamico')"
+	></p>	 
+	<div id="idMenu02Dinamico" style="display: none">
+		<p><h4>2 - Serviços</h4></p>
+			<p><a href=# >Link 2.1</a></p>
+			<p><a href=# >Link 2.2</a></p>
+	</div>
+
+</body>
+</html>

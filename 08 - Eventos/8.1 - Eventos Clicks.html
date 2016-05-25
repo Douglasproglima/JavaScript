@@ -24,6 +24,7 @@
 			
 			//Se não for número retorna falso
 			if (isNaN(num)) {
+				alert("Informe apenas números!");
 				return false;
 			}else{
 				return true;
@@ -39,6 +40,7 @@
 			
 			//Se não for número retorna falso
 			if (isNaN(num)) {
+				
 				var texto = document.getElementById("idTexto03").value;
 				for(var i = 0; i < texto.length; i++){
 					var aux =  paserInt(texto.substr(i, 1));
@@ -52,7 +54,16 @@
 	</script>
 </head>
 <body>
+	<!-- Eventos Click
+		onClick...: Ocorre quando o usuário clica em um objeto
+		onDblClick: Ocorre quando o usuário clica duas vezes em um objeto
+		onKeyDown.: Ocorre quando uma tecla é pressionada
+		onKeyUp...: Ocorre quando uma tecla é solta
+		onKeyPress: Ocorre quando uma tecla é pressionada ou solta
+	 -->
+	
 	<h4>Corpo da página - Eventos - Clicks</h4>
+	<label><strong>E-mail: </strong></label>
 	<input id="idTexto" type="text" />
 	<input id="idBotao" type="button" value="OK -Um Clique" onclick="validarEmail()" />
 	
@@ -61,13 +72,13 @@
 	
 	<!-- OnKeyPress trabalha com o caracter do teclado  -->
 	<br><br>
-	<label>OnKeyPress</label>
+	<label><strong>OnKeyPress: </strong></label>
 	<input id="idTexto02" type="text" onkeypress = "return validarNumeros(event)"/>
 
 	<!-- OnKeyPress trabalha com o código do teclado  -->
 	<br><br>
-	<label>OnKeyDown</label>
-	<input id="idTexto03" type="text" onkeyup = "validarNumeros2(event)"/>
+	<label><strong>OnKeyDown: </strong></label>
+	<input id="idTexto03" type="text" onkeydown = "validarNumeros2(event)"/>
 
 </body>
 </html>
