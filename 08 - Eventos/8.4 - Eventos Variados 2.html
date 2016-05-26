@@ -2,11 +2,46 @@
 	<meta charset="utf-8">
 <head>	
 	<title>JavaScript - Eventos - Variados 02</title>
-	<script type="text/javascript" src=" ">
+	<script type="text/javascript">
+	
+		//Substitui imagem dinamicamente
+		function alterarImagem(elemento){
+			alert("alterarImagem: "+elemento.src.substring(elemento.src.lastIndexOf("/")+1, elemento.src.length));
+			var imagens = ["douglas4.jpg", "douglas3.jpg"];
+			
+			for (var i = 0; i < imagens.length; i++) {
+				if(imagens[i] != elemento.src.substring(elemento.src.lastIndexOf("/")+1, elemento.src.length)){
+					elemento.src = imagens[i];
+					break;
+				}
+			}
+		}
+		
+		function onLoadMessage() {
+			alert("onload - Seja Bem Vindo!!!");
+		}
+		
+		function onUnLoadMessage() {
+			alert("onunload - Flw malaca");
+		}
+		
+		function verificarLarguraMonitor(){
+			if (screen.width > window.innerWidth) {
+				window.innerWidth = screen.width;
+			}
+		}
 	</script>
 </head>
-<body>
+<body onload="onLoadMessage()" onunload="onUnLoadMessage()" onresize="verificarLarguraMonitor()">
 	<h4>Corpo da página - Eventos - Variados 02</h4>
-	
+	<!-- Eventos utilizados para ter mais interatividade
+		onLoad..: Ocorre quando a página ou imagem termina de carregar - utilizado para carregar alguma função javaScript no inicio da página.
+		onUnLoad: Ocorre quando o usuário sai da página
+		onResize: Ocorre quando a jnela ou frame é redimensionada
+		onError.: ocorre quando acontece um erro em uma imagem documento
+	 -->
+	 
+	 <img src="douglas.jpg" width="100%" height="100%" onerror="alterarImagem(this)">
+	 
 </body>
 </html>
