@@ -2,11 +2,82 @@
 	<meta charset="utf-8">
 <head>	
 	<title>JavaScript - Eventos - Variados 01</title>
-	<script type="text/javascript" src=" ">
+	<script type="text/javascript" >
+		function formatarNome(elemento){
+			var nomeArray = elemento.value.split(" ");
+			var resultado = "";
+			for (var i = 0; i < nomeArray.length; i++) {
+				if (nomeArray[i].length > 2) {
+					resultado += nomeArray[i].substr(0,1).toUpperCase() + nomeArray[i].substring(1, nomeArray[i].length);
+				} else {
+					resultado += nomeArray[i];
+				}
+				resultado += " ";
+			}
+			
+			elemento.value = resultado;
+		}
+		
+		function realcarCampo(elemento){
+			elemento.style.backgroundColor = "#EEDD82";
+		}
+		
+		//Validar se os inputs estão preenchidos
+		function validarForm(){
+			var inputs = document.getElementsByTagName("input");
+			var resultado = true;
+			
+			for (var i = 0; i < inputs.length; i++) {
+				if(inputs[i].value == null || inputs[i].value == ""){
+					realcarCampo(inputs[i]);
+					resultado = false;
+				}
+			}
+			
+			if (!resultado) {
+				alert("Preencha todos os campos!");
+			}
+			
+			return resultado;
+		}
 	</script>
 </head>
 <body>
 	<h4>Corpo da página - Eventos - Variados 01</h4>
-		
+	<!-- Eventos Variados Parte 01 
+		onChange: Ocorre quando o usuário mda o conteúdo de um campo e o elemento perde o foco;
+		onSelect: Ocorre quando o texto é selecionado;
+		onFocus.: Ocorre quando o elemento obtém o foco;
+		onBlur..: Ocorre quando o elemento perde o foco;
+		onSubMit: Ocorre quando o botão de submit é clicado;
+		onReset.: Ocorre quando o botão de reset é clicado;
+	 -->
+	 
+	 <script type="text/javascript">
+	 	var a = "Douglas";
+	 	var b = "Fernando";
+	 	resultado = a + b;
+	 	
+	 	document.write(resultado);
+	 	
+	 </script>
+	 		 
+	 		 
+	 <form onreset="return confirm('Deseja realmente apagar o formulário?') " 
+	 	   onsubmit="return validarForm()">
+	 	<label for="idInputNome" >Nome:</label>
+	 	<input id="idInputNome" type="text" onblur="formatarNome(this)">
+	 	
+	 	<br>
+	 	<label for="idInputData" >Data Nasc.:</label>
+	 	<input id="idInputData" type="text" 
+	 		   onfocus="alert('Preencha o campo data.')" 
+	 		   onselect="alert('Texto selecionado: ')">
+	 
+	 	<br>
+	 	<input type="submit" value="OK" >
+	 	<input type="reset" value="Limpar">
+	 </form>
+	 
 </body>
 </html>
