@@ -1,0 +1,38 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Objetos e Janelas</title>
+	<script type="text/javascript">
+		function mostrarResolucaoMonitor(){
+			alert(screen.width+"x"+screen.height);
+		}
+		
+		function exibirAtributosLocation() {
+			document.getElementById("idDivLoc").style.display="block";
+		}
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Objetos e Janelas</h4>
+	<!-- Objetos e Janelas 
+		Objetos screen: É utilizado para descobrir a resolução do monitor do usuário e adaptar o site a essa resolução.
+		Objetos location
+		Janelas, objeto window e innerHTML
+	-->
+	<input type="button" value="Resolução Atual" onclick="mostrarResolucaoMonitor()">
+	<input type="button" value="Location" onclick="exibirAtributosLocation()">
+	<input type="button" value="Método Assign" onclick="location.assign('9.1 - Destino.html')">
+	<input type="button" value="Método Replace" onclick="location.replace('9.1 - Destino.html')">
+
+	<div id="idDivLoc" style="display: none" >
+		<script type="text/javascript">
+			document.write("host....: "+window.location.host+"<br>");
+			document.write("hostName: "+window.location.hostname+"<br>");
+			document.write("Href....: "+window.location.href+"<br>");
+			document.write("PathName: "+window.location.pathname+"<br>");
+			document.write("Search..: "+window.location.search+"<br>");
+		</script>
+	</div>
+	
+</body>
+</html>
