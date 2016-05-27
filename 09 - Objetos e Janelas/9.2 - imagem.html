@@ -1,0 +1,20 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Objeto Window</title>
+	<script type="text/javascript">
+		var i = 0;
+		function alterarImagem(){
+			//Operador Ternário
+			//se o  resto da divisão (i++ pelo resto da divisão por 2) for par, será atribuido a imagem 2 do contrário imagem 1; 
+			var imagem = i++ % 2 == 0 ? "douglas2.jpg" : "douglas1.jpg";
+			document.getElementById("idImagemDoc").src = imagem;
+			opener.document.getElementById("idDivCorpo").innerHTML +="<h4>"+ imagem +"</h4>"+"<br>";
+			
+		}
+	</script>
+</head>
+<body>
+	<img id="idImagemDoc" src="douglas1.jpg" width="420" height="320" onclick="alterarImagem()">
+</body>
+</html>

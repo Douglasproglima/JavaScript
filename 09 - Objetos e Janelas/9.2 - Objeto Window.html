@@ -1,0 +1,36 @@
+<html>
+	<meta charset="utf-8">
+<head>	
+	<title>JavaScript - Objeto Window</title>
+	<script type="text/javascript">
+		function abrirPopup(){
+			//principais propriedade, parâmetro 3: menubar=yes, location=yes, scrollbars=yes, resizable=yes, 
+			window.open("9.2 - imagem.html", "imagem", "width = 450, height= 350");
+		}
+	</script>
+</head>
+<body>
+	<h4>Corpo da página - Objeto Window</h4>
+	<!-- Objeto Window 
+		opener()...........: Retona uma referência para a hanela que abriu a janela atual
+		name().............: Atribui/Retorna o nome da janela
+		focus()............: Atribui o foco a janela atual
+		blur().............: Remove o foco da janela atual
+		back().............: Retorna a janela para a página anterior no histórico
+		forward()..........: Move a janela para a página seguinte no histórico
+		clear/setInterval(): Executa uma função a cada período
+		clear/setTimeOut().: Executa uma função após um determinado período
+		moveBy()...........: Move a janela uma determinada quantidade
+		moveTo()...........: Move a janela para uma posição
+		open().............: Abre uma nova janela
+		alert, prompt():, confirm():
+		
+		innerHTML (Atributo)
+			Propriedade que retorna/atribui HTML a um determinado elemento
+	-->
+	
+	<input type="button" value="Abrir Popup" onclick="abrirPopup()">
+	<div id="idDivCorpo">
+	</div>
+</body>
+</html>
