@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset = utf-8"/>	
+	<title>JavaScript - Imagens - Rollovers e Pré-carga de imagens</title>
+	<script type="text/javascript">
+		var botaoVoltar1 = new Image();
+		botaoVoltar1.src = "voltar1.png";
+		
+		var botaoVoltar2 = new Image();
+		botaoVoltar2.src = "voltar2.png";
+
+		var botaoVoltar3 = new Image();
+		botaoVoltar3.src = "voltar3.png";
+
+		var botaoSeguir1 = new Image();
+		botaoSeguir1.src = "seguir1.png";
+		
+		var botaoSeguir2 = new Image();
+		botaoSeguir2.src = "seguir2.png";
+
+		var botaoSeguir3 = new Image();
+		botaoSeguir3.src = "seguir3.png";
+		
+		var arraySlides = new Array();
+		var apresentacao;
+		
+		function init(){
+			apresentacao = document.getElementById("idImagem01");
+			
+			var slide1 = new Image();
+			slide1.src = "douglas1.jpg";
+
+			var slide2 = new Image();
+			slide2.src = "douglas2.jpg";
+			
+			var slide3 = new Image();
+			slide3.src = "douglas3.jpg";
+			
+			slide1.proximo = slide2;
+			slide1.anterior = slide3;
+
+			slide2.proximo = slide3;
+			slide2.anterior = slide1;
+			
+			slide3.proximo = slide1;
+			slide3.anterior = slide2;
+			
+			arraySlides = [slide1, slide2, slide3];
+			arraySlides[slide1.src] = slide1;
+			arraySlides[slide2.src] = slide2;
+			arraySlides[slide3.src] = slide3;
+		}
+		
+		var incremento = 0;
+		function slideAutomatico(){
+			var imagem = incremento++% 2 == 0 ?"douglas1.jpg" : "douglas2.jpg";
+			document.getElementById("idImagem01").src = imagem;
+		}
+		
+		setInterval("slideAutomatico();", 1250);
+	</script>
+</head>
+<body onload="init()" >
+	<!-- Imagens
+		Slides - Devem permitir ao usuário mater o controle da apresentação de forma que possa retornar
+		ao slide anterior ou atualizar para imagem automáticamente.
+	-->
+	
+	<table align="center">
+		<tr align="center">
+			<td colspan="2">
+				<img id="idImagem01" src="douglas1.jpg" width="75%" height="300">
+			</td>
+		</tr>
+
+		<tr align="center" bgcolor="#EEEEE0">
+			<td align="center">
+				<img src="voltar1.png" 
+					 onmouseover="this.src = botaoVoltar2.src;"
+					 onmouseout="this.src = botaoVoltar1.src;"
+					 onmousedown="this.src = botaoVoltar3.src;"
+					 onmouseup="this.src = botaoVoltar2.src;" 
+					 onclick="apresentacao.src = arraySlides[apresentacao.src].anterior.src">
+			</td>
+			<td align="center">
+				<img src="seguir1.png"
+					 onmouseover="this.src = botaoSeguir2.src;" 
+					 onmouseout="this.src = botaoSeguir1.src;" 
+					 onmousedown="this.src = botaoSeguir3.src;" 
+					 onmouseup="this.src = botaoSeguir2.src;"
+					 onclick="apresentacao.src = arraySlides[apresentacao.src].proximo.src">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
