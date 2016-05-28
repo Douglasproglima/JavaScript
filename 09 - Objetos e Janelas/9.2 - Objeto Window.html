@@ -3,9 +3,20 @@
 <head>	
 	<title>JavaScript - Objeto Window</title>
 	<script type="text/javascript">
+		var janelaPopup;
+		var intervalo;
 		function abrirPopup(){
 			//principais propriedade, parâmetro 3: menubar=yes, location=yes, scrollbars=yes, resizable=yes, 
-			window.open("9.2 - imagem.html", "imagem", "width = 450, height= 350");
+			janelaPopup = open("9.2 - imagem.html", "imagem", "width = 450, height= 350");
+			intervalo = setInterval("moverJanela()", 500);
+		}
+		
+		function moverJanela(){
+			janelaPopup.moveBy(2, 2);
+		}
+		
+		function fecharPopup() {
+			janelaPopup.close();
 		}
 	</script>
 </head>
@@ -30,7 +41,9 @@
 	-->
 	
 	<input type="button" value="Abrir Popup" onclick="abrirPopup()">
+	<input type="button" value="Fechar Popup" onclick="fecharPopup()">
 	<div id="idDivCorpo">
+	
 	</div>
 </body>
 </html>
