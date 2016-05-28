@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset = utf-8"/>	
+	<title>JavaScript - Imagens - Rollovers e Pré-carga de imagens</title>
+	<script type="text/javascript">
+		var img1 = new Image(200, 150);
+		img1.src = "douglas2.jpg";
+		
+		var img2 = new Image(200, 150);
+		img2.src = "douglas3.jpg";
+	</script>
+</head>
+<body>
+	<!-- Imagens
+		Rollovers - Técnica  que executa a substituição de uma imagem por outra, normalmente, para
+					passar a noção de profundaidade e movimento.
+		
+		Pré-carga - Técnica utilizada para carregar antecipadamente (antes do uso) as imagens na máquina do usuário.
+	-->
+	
+	<img id="idImagem01" src="douglas1.jpg" width="100%" height="300" onmouseover="this.src = img1.src;" onmouseout="this.src = img2.src;" onclick="this.src = 'douglas1.jpg'">
+</body>
+</html>
