@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" >
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="js/FuncoesTexto/FStrings.js"></script>
+	<script type="text/javascript" > 
+		function validarDados(){
+			if (!validarNome(document.getElementById("idNome"))) {
+				alert("Digite o nome e sobre nome!");
+				document.getElementById("idNome").focus();
+				document.getElementById("idNome").style.backgroundColor = "#FFFFAA";
+				return false;
+			}
+			alert("Campos validados com sucesso!");
+			return true;
+		}
+	</script>
+</head>
+
+<body>
+	<label for="idNome">Nome:</label>
+	<input id="idNome" name="nomeContato" type="text" style="width: 300px" onkeydown="this.style.backgroundColor = 'white'" onblur="formatarNome(this)" />
+	<br><br>
+
+	<label for="idEmailContato">E-mail:</label>
+	<input id="idEmailContato" name="emailContato" type="text" style="width: 300px" />
+	<br><br>
+
+	<label for="idCpfContato">CPF:</label>
+	<input id="idCpfContato" name="cpfContato" type="text" style="width: 150px"/>
+	<br><br>
+
+	<label for="idListaSexo">Sexo:</label>
+	<select value="idListaSexo" style="width: 150px" >
+		<option value="" selected="Selecione">Selecione</option>
+		<option value="Masculino">Masculino</option>
+		<option value="Femenino">Femenino</option>
+	</select>
+	<br><br>
+
+	<label for="idTelefoneContato">Telefone:</label>
+	<input id="idTelefoneContato" name="telefoneContato" type="text" data-mask="(99) 99999-99999" style="width: 150px "/>
+	<br><br>
+
+	<label for="idTituloMensagem">Título:</label>
+	<input id="idTituloMensagem" name="tituloMensagem" type="text" style="width: 300px " />
+	<br><br>
+
+	<label for="idTextoMensagem">Sua mensagem:</label><br>
+	<textarea id="idTextoMensagem" name="textoMensagem" data-maxlength="1000" maxlength="1000" style="width: 500px; height: 200px" ></textarea>
+	<br><br>
+
+	<input id="idBtEnviar" type="submit" value="Enviar mensagem »" onclick="return validarDados()" />
+
+</body>
+</html>
