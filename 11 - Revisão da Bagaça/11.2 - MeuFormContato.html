@@ -4,12 +4,32 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="text/javascript" src="js/FuncoesTexto/FStrings.js"></script>
-	<script type="text/javascript" > 
+	<script type="text/javascript" >
 		function validarDados(){
 			if (!validarNome(document.getElementById("idNome"))) {
 				alert("Digite o nome e sobre nome!");
 				document.getElementById("idNome").focus();
 				document.getElementById("idNome").style.backgroundColor = "#FFFFAA";
+				return false;
+			}else if(document.getElementById("idCpfContato").value.length < 14){
+				alert("Informe um CPF válido!");
+				document.getElementById("idCpfContato").focus();
+				document.getElementById("idCpfContato").style.backgroundColor = "#FFFFAA";
+				return false;				
+			}else if(!validarSexo(document.getElementById("idListaSexo"))){
+				alert("Selecione o sexo!");
+				document.getElementById("idListaSexo").focus();
+				document.getElementById("idListaSexo").style.backgroundColor = "#FFFFAA";
+				return false;				
+			}else if(document.getElementById("idTelefoneContato").value.length < 7 ){
+				alert("Informe um telefone válido!");
+				document.getElementById("idTelefoneContato").focus();
+				document.getElementById("idTelefoneContato").style.backgroundColor = "#FFFFAA";
+				return false;				
+			}else if(!verificarTextoValido(document.getElementById("idTextoMensagem").value)){
+				alert("Informe sua mensagem!");
+				document.getElementById("idTextoMensagem").focus();
+				document.getElementById("idTextoMensagem").style.backgroundColor = "#FFFFAA";
 				return false;
 			}
 			alert("Campos validados com sucesso!");
@@ -28,11 +48,11 @@
 	<br><br>
 
 	<label for="idCpfContato">CPF:</label>
-	<input id="idCpfContato" name="cpfContato" type="text" style="width: 150px"/>
+	<input id="idCpfContato" name="cpfContato" type="text" style="width: 150px" onkeypress="return verificaNumero(event)" onkeydown="this.style.backgroundColor = 'white'"/>
 	<br><br>
 
 	<label for="idListaSexo">Sexo:</label>
-	<select value="idListaSexo" style="width: 150px" >
+	<select id="idListaSexo" style="width: 150px" onchange="this.style.backgroundColor = 'white'" >
 		<option value="" selected="Selecione">Selecione</option>
 		<option value="Masculino">Masculino</option>
 		<option value="Femenino">Femenino</option>
@@ -40,7 +60,7 @@
 	<br><br>
 
 	<label for="idTelefoneContato">Telefone:</label>
-	<input id="idTelefoneContato" name="telefoneContato" type="text" data-mask="(99) 99999-99999" style="width: 150px "/>
+	<input id="idTelefoneContato" name="telefoneContato" type="text" data-mask="(99) 99999-99999" style="width: 150px" onkeypress="return verificaNumero(event)" onkeydown="this.style.backgroundColor = 'white'" />
 	<br><br>
 
 	<label for="idTituloMensagem">Título:</label>
@@ -48,7 +68,7 @@
 	<br><br>
 
 	<label for="idTextoMensagem">Sua mensagem:</label><br>
-	<textarea id="idTextoMensagem" name="textoMensagem" data-maxlength="1000" maxlength="1000" style="width: 500px; height: 200px" ></textarea>
+	<textarea id="idTextoMensagem" name="textoMensagem" data-maxlength="1000" maxlength="1000" style="width: 500px; height: 200px" onkeydown="this.style.backgroundColor = 'white'"></textarea>
 	<br><br>
 
 	<input id="idBtEnviar" type="submit" value="Enviar mensagem »" onclick="return validarDados()" />

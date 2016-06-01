@@ -40,3 +40,23 @@ function validarNome(input){
 	}
 	return false;
 }
+
+function validarSexo(select){
+	if (select.selectedIndex == 0) {
+		return false;
+	}else{
+		return true;
+	}
+}
+
+function verificaNumero(evt){
+	var codigo = evt.which; //Captura o código do evento;
+	var caractere = String.fromCharCode(codigo); //Verifica qual o caractere que este código representa
+	
+	//Se não for um número retorna false do contrário true
+	if (isNaN(caractere) && codigo !=0 && codigo != 8) {
+		return false;
+	}else{
+		return true;
+	}
+}
