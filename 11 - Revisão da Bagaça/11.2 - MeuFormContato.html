@@ -8,27 +8,42 @@
 		function validarDados(){
 			if (!validarNome(document.getElementById("idNome"))) {
 				alert("Digite o nome e sobre nome!");
-				document.getElementById("idNome").focus();
+				rolagem(document.getElementById("idNome"));
 				document.getElementById("idNome").style.backgroundColor = "#FFFFAA";
 				return false;
+			}else if(!validarEmail(document.getElementById("idEmailContato"))){
+				alert("Informe um e-mail valido!");
+				rolagem(document.getElementById("idEmailContato"));
+				document.getElementById("idEmailContato").style.backgroundColor = "#FFFFAA";
+				return false;				
 			}else if(document.getElementById("idCpfContato").value.length < 14){
 				alert("Informe um CPF válido!");
-				document.getElementById("idCpfContato").focus();
+				rolagem(document.getElementById("idCpfContato"));
 				document.getElementById("idCpfContato").style.backgroundColor = "#FFFFAA";
+				return false;				
+			}else if(!validarData(document.getElementById("idDataNascimento"))){
+				alert("Informe uma data valida!");
+				rolagem(document.getElementById("idDataNascimento"));
+				document.getElementById("idDataNascimento").style.backgroundColor = "#FFFFAA";
 				return false;				
 			}else if(!validarSexo(document.getElementById("idListaSexo"))){
 				alert("Selecione o sexo!");
-				document.getElementById("idListaSexo").focus();
+				rolagem(document.getElementById("idListaSexo"));
 				document.getElementById("idListaSexo").style.backgroundColor = "#FFFFAA";
 				return false;				
-			}else if(document.getElementById("idTelefoneContato").value.length < 7 ){
-				alert("Informe um telefone válido!");
-				document.getElementById("idTelefoneContato").focus();
+			}else if(document.getElementById("idTelefoneContato").value.length < 15 ){
+				alert("Informe um número de telefone válido!");
+				rolagem(document.getElementById("idTelefoneContato"));
 				document.getElementById("idTelefoneContato").style.backgroundColor = "#FFFFAA";
+				return false;				
+			}else if(document.getElementById("idCelularContato").value.length < 16 ){
+				alert("Informe um número de celular válido!");
+				rolagem(document.getElementById("idCelularContato"));
+				document.getElementById("idCelularContato").style.backgroundColor = "#FFFFAA";
 				return false;				
 			}else if(!verificarTextoValido(document.getElementById("idTextoMensagem").value)){
 				alert("Informe sua mensagem!");
-				document.getElementById("idTextoMensagem").focus();
+				rolagem(document.getElementById("idTextoMensagem"));
 				document.getElementById("idTextoMensagem").style.backgroundColor = "#FFFFAA";
 				return false;
 			}
@@ -44,11 +59,19 @@
 	<br><br>
 
 	<label for="idEmailContato">E-mail:</label>
-	<input id="idEmailContato" name="emailContato" type="text" style="width: 300px" />
+	<input id="idEmailContato" name="emailContato" type="text" style="width: 300px" onkeypress="this.style.backgroundColor = 'write'" />
 	<br><br>
 
 	<label for="idCpfContato">CPF:</label>
-	<input id="idCpfContato" name="cpfContato" type="text" style="width: 150px" onkeypress="return verificaNumero(event)" onkeydown="this.style.backgroundColor = 'white'"/>
+	<input id="idCpfContato" name="cpfContato" type="text"  maxlength="14" style="width: 150px" onkeypress="mascara(this, cpf_mask)"  onkeydown="this.style.backgroundColor = 'white'"/>
+	<br><br>
+
+<!-- 	<label for="idDataNascimento">Data Nascimento:</label> -->
+<!-- 	<input id="idDataNascimento" type="date" name="dataNascimento"  /> -->
+<!-- 	<br><br> -->
+
+	<label for="idDataNascimento">Data Nascimento:</label>
+	<input id="idDataNascimento" type="text" name="dataNascimento" maxlength="10" onkeypress="formatar('##/##/####', this); return verificaNumero(event)" onkeyup="this.style.backgroundColor = 'white'" />
 	<br><br>
 
 	<label for="idListaSexo">Sexo:</label>
@@ -60,10 +83,14 @@
 	<br><br>
 
 	<label for="idTelefoneContato">Telefone:</label>
-	<input id="idTelefoneContato" name="telefoneContato" type="text" data-mask="(99) 99999-99999" style="width: 150px" onkeypress="return verificaNumero(event)" onkeydown="this.style.backgroundColor = 'white'" />
+	<input id="idTelefoneContato" name="telefoneContato" type="text" maxlength="14" style="width: 150px" onkeypress="mascara(this, mtel); return verificaNumero(event)" onkeydown="this.style.backgroundColor = 'white'" />
 	<br><br>
 
-	<label for="idTituloMensagem">Título:</label>
+	<label for="idCelularContato">Celular:</label>
+	<input id="idCelularContato" name="celularContato" type="text" maxlength="15" style="width: 150px" onkeypress="mascara(this, mtel); return verificaNumero(event)" onkeydown="this.style.backgroundColor = 'white'" />
+	<br><br>
+
+	<label for="idTituloMensagem">Assunto:</label>
 	<input id="idTituloMensagem" name="tituloMensagem" type="text" style="width: 300px " />
 	<br><br>
 
