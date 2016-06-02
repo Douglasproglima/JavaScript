@@ -62,9 +62,13 @@ function validarSexo(select){
 	}
 }
 
+//Adaptada para o IE
 function verificaNumero(evt){
-	var codigo = evt.which; //Captura o código do evento;
-	var caractere = String.fromCharCode(codigo); //Verifica qual o caractere que este código representa
+	//Se o evento existir ok, do contrário captura o evento do IE
+	evt = evt ? evt : window.event;
+	
+	var codigo = evt.which ? evt.which : evt.keycode  //Captura o código do evento;
+	var caractere = String.fromCharCode(codigo); 	  //Verifica qual o caractere que este código representa
 	
 	//Se não for um número retorna false do contrário true
 	if (isNaN(caractere) && codigo !=0 && codigo != 8) {
@@ -131,7 +135,7 @@ function formatarData(input){
 	input.value = data;
 }
 
-//Função para centralizar no campo que tiver advergência
+//Função para centralizar no campo que tiver advergência - adaptada para o IE
 function rolagem(elemento){
 	var posicaoY = 0;
 	
@@ -145,9 +149,10 @@ function rolagem(elemento){
 		}while(elemento)
 	}
 	
-	var tamanhoJanela = window.innerHeight; 		 //Pega o tamanho da tela do computador
-	var posicaoAtual = self.pageYOffset; 			 //`Posição atual da página
-	var posicaoFinal = posicaoY - (tamanhoJanela/4); //Posição final desejada
+	//Faz um teste para funcionar no IE
+	var tamanhoJanela = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight; //Pega o tamanho da tela do computador
+	var posicaoAtual = self.pageYOffset ? self.pageYOffset : document.documentElement.scrollTop; 		 //Posição atual da página
+	var posicaoFinal = posicaoY - (tamanhoJanela/4); 													 //Posição final desejada
 	
 	//Enquanto a posição atual for maior do que a posição final será decrementado a posição atual em 5 pixel
 	while(posicaoAtual > posicaoFinal){
